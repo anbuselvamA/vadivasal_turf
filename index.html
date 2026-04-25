@@ -6,6 +6,8 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Vaadivaasal Eco-Friendly Turf | Cricket Ground Vriddhachalam | Open 24 Hours</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
@@ -356,63 +358,142 @@ WhatsApp to Book
 <span class="material-symbols-outlined text-9xl">event_available</span>
 </div>
 <div class="relative z-10">
-<h2 class="font-headline-lg text-headline-lg text-white mb-sm uppercase italic">Secure Your Session</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-lg">Book a slot at our premier Vriddhachalam facility.</p>
-<div id="booking-container" class="relative">
-<form id="booking-form" class="space-y-md transition-opacity duration-400">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
-<div class="flex flex-col gap-xs">
-<label class="font-label-sm text-label-sm text-primary uppercase">Full Name</label>
-<input id="booking-name" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none" placeholder="Enter name" type="text"/>
-<span id="error-name" class="text-error text-xs hidden">Please enter your full name.</span>
-</div>
-<div class="flex flex-col gap-xs">
-<label class="font-label-sm text-label-sm text-primary uppercase">Phone Number</label>
-<input id="booking-phone" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none" placeholder="+91 XXXXX XXXXX" type="tel"/>
-<span id="error-phone" class="text-error text-xs hidden">Please enter a valid 10-digit phone number.</span>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
-<div class="flex flex-col gap-xs">
-<label class="font-label-sm text-label-sm text-primary uppercase">Date (DD/MM/YYYY)</label>
-<input id="booking-date" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none" type="date"/>
-<span id="error-date" class="text-error text-xs hidden">Please select a date.</span>
-</div>
-<div class="flex flex-col gap-xs">
-<label class="font-label-sm text-label-sm text-primary uppercase">Preferred Slot</label>
-<select id="booking-slot" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none">
-<option value="">Select a slot</option>
-<option value="Morning (5 AM - 10 AM)">Morning (5 AM - 10 AM)</option>
-<option value="Afternoon (10 AM - 6 PM)">Afternoon (10 AM - 6 PM)</option>
-<option value="Night (6 PM - 5 AM)">Night (6 PM - 5 AM)</option>
-</select>
-<span id="error-slot" class="text-error text-xs hidden">Please select a preferred slot.</span>
-</div>
-</div>
-<button id="booking-submit" class="w-full bg-primary-container text-on-primary-container font-lexend font-bold uppercase tracking-tight py-md hover:bg-[#00E676] transition-all mt-md mobile-full-width disabled:opacity-50 disabled:cursor-not-allowed" type="submit">
-                            Confirm Booking
-                        </button>
-</form>
+  <div class="flex items-center justify-between mb-sm">
+    <h2 class="font-headline-lg text-headline-lg text-white uppercase italic">Secure Your Session</h2>
+    <div class="flex items-center gap-2 text-on-surface-variant text-sm font-label-sm uppercase tracking-widest">
+      <span id="step-indicator-1" class="text-primary font-bold transition-colors duration-300">Step 1: Select</span>
+      <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+      <span id="step-indicator-2" class="opacity-50 transition-colors duration-300">Step 2: Confirm</span>
+    </div>
+  </div>
+  <p class="font-body-md text-body-md text-on-surface-variant mb-lg">Book a slot at our premier Vriddhachalam facility.</p>
 
-<div id="booking-success" class="hidden absolute inset-0 flex flex-col items-center justify-center text-center bg-surface-container-high transition-all duration-400 opacity-0 scale-95 z-20 px-4 rounded-xl">
-<div class="w-20 h-20 bg-[#00E676]/20 rounded-full flex items-center justify-center mb-6 neon-glow shadow-[0_0_30px_rgba(0,230,118,0.4)] success-checkmark">
-<span class="material-symbols-outlined text-[48px] text-[#00E676]">check_circle</span>
-</div>
-<h3 class="font-headline-lg text-headline-lg text-white mb-2">Booking Confirmed!</h3>
-<p id="success-message" class="text-on-surface-variant font-body-md mb-8 max-w-md">
-  Thank you [Name]! Your slot at Vaadivaasal Eco-Friendly Turf has been confirmed. Our team will contact you at [Phone Number] shortly to confirm your [Time Slot] on [Date].
-</p>
-<div class="flex flex-col w-full gap-4 max-w-xs mx-auto">
-<a id="whatsapp-btn" class="w-full bg-[#25D366] text-white font-lexend font-bold uppercase py-sm hover:bg-[#128C7E] transition-all flex items-center justify-center gap-2 rounded shadow-lg" href="#" target="_blank">
-  <svg class="w-5 h-5 fill-current" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg>
-  Add to WhatsApp
-</a>
-<button id="book-another-btn" class="w-full bg-transparent border border-outline-variant text-white font-lexend font-bold uppercase py-sm hover:bg-surface-variant transition-all rounded">
-  Book Another Slot
-</button>
-</div>
-</div>
-</div>
+  <!-- STEP 1: Slot Selection -->
+  <div id="step-1" class="transition-all duration-500 ease-in-out transform">
+    <div class="mb-md">
+      <label class="font-label-sm text-label-sm text-primary uppercase block mb-3">Select Date</label>
+      <div class="flex overflow-x-auto snap-x snap-mandatory gap-3 pb-2 scrollbar-hide" id="date-container">
+        <!-- JS will populate dates -->
+      </div>
+    </div>
+    
+    <div class="mb-lg">
+      <label class="font-label-sm text-label-sm text-primary uppercase block mb-3">Select Time Slot</label>
+      <div class="space-y-4">
+        <div>
+          <h4 class="text-on-surface-variant text-xs uppercase mb-2">Morning</h4>
+          <div class="grid grid-cols-3 gap-3" id="slots-morning"></div>
+        </div>
+        <div>
+          <h4 class="text-on-surface-variant text-xs uppercase mb-2">Afternoon</h4>
+          <div class="grid grid-cols-3 gap-3" id="slots-afternoon"></div>
+        </div>
+        <div>
+          <h4 class="text-on-surface-variant text-xs uppercase mb-2">Night</h4>
+          <div class="grid grid-cols-3 gap-3" id="slots-night"></div>
+        </div>
+      </div>
+    </div>
+    
+    <button type="button" id="btn-continue" disabled class="w-full bg-primary-container text-on-primary-container font-lexend font-bold uppercase tracking-tight py-md hover:bg-[#00E676] transition-all mobile-full-width disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-primary-container rounded">
+      Continue to Details
+    </button>
+  </div>
+
+  <!-- STEP 2: Booking Form -->
+  <div id="step-2" class="hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out transform">
+    <!-- Selected Slot Summary Card -->
+    <div class="bg-[#1a1a1a] border border-[#00E676]/30 rounded-lg p-4 mb-md flex items-center justify-between shadow-[0_0_15px_rgba(0,230,118,0.1)]">
+      <div>
+        <span class="text-xs text-on-surface-variant uppercase tracking-widest block mb-1">Selected Slot</span>
+        <div class="flex items-center gap-3 text-white font-bold text-lg">
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[#00E676] text-[20px]">calendar_today</span> <span id="summary-date">--</span></span>
+          <span class="text-outline-variant">|</span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[#00E676] text-[20px]">schedule</span> <span id="summary-time">--</span></span>
+        </div>
+      </div>
+      <button type="button" id="btn-edit-slot" class="text-primary hover:text-white transition-colors text-sm uppercase font-bold flex items-center gap-1">
+        <span class="material-symbols-outlined text-[18px]">edit</span> Edit
+      </button>
+    </div>
+
+    <hr class="border-outline-variant mb-md border-dashed opacity-50" />
+
+    <form id="premium-booking-form" class="space-y-md">
+      <!-- Hidden fields for submission -->
+      <input type="hidden" id="hidden-date" name="date" />
+      <input type="hidden" id="hidden-slot" name="slot" />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+        <div class="flex flex-col gap-xs">
+          <label class="font-label-sm text-label-sm text-primary uppercase">Full Name</label>
+          <input id="input-name" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none rounded-t" placeholder="Enter name" type="text" required/>
+        </div>
+        <div class="flex flex-col gap-xs">
+          <label class="font-label-sm text-label-sm text-primary uppercase">Phone Number</label>
+          <input id="input-phone" class="bg-[#252525] border-b border-outline-variant focus:border-primary focus:ring-0 text-on-surface p-sm transition-colors outline-none rounded-t" placeholder="+91 XXXXX XXXXX" type="tel" required/>
+        </div>
+      </div>
+      <button id="btn-confirm-booking" class="w-full bg-[#00E676] text-[#002204] font-lexend font-black uppercase tracking-tight py-md hover:bg-[#62ff96] hover:shadow-[0_0_20px_rgba(0,230,118,0.5)] transition-all mt-md mobile-full-width rounded scale-100 hover:scale-[1.02] active:scale-95" type="submit">
+        Confirm Booking
+      </button>
+    </form>
+  </div>
+
+  <!-- STEP 3: Ticket Confirmation -->
+  <div id="step-3" class="hidden opacity-0 translate-y-4 transition-all duration-500 ease-in-out transform">
+    <div id="ticket-card" class="bg-[#121212] border-2 border-[#00E676]/30 rounded-xl max-w-md mx-auto overflow-hidden relative shadow-[0_0_30px_rgba(0,230,118,0.15)] mb-md">
+      <!-- Ticket Header -->
+      <div class="bg-[#00E676]/10 px-6 py-4 border-b border-dashed border-[#00E676]/30 flex justify-between items-center">
+        <div>
+          <span class="text-xs font-bold text-[#00E676] uppercase tracking-widest block">Confirmed Booking</span>
+          <h3 class="text-white font-lexend font-black text-xl italic uppercase tracking-tight">Vaadivaasal Turf</h3>
+        </div>
+        <span class="material-symbols-outlined text-[#00E676] text-3xl">verified</span>
+      </div>
+      
+      <!-- Ticket Details -->
+      <div class="px-6 py-5 space-y-4">
+        <div>
+          <span class="text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Name</span>
+          <p id="ticket-name" class="text-white font-bold text-lg">--</p>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Date</span>
+            <p id="ticket-date" class="text-white font-bold">--</p>
+          </div>
+          <div>
+            <span class="text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Time</span>
+            <p id="ticket-time" class="text-white font-bold">--</p>
+          </div>
+        </div>
+        
+        <div>
+          <span class="text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Booking ID</span>
+          <p id="ticket-id" class="text-[#00E676] font-bold font-mono tracking-wider">--</p>
+        </div>
+      </div>
+      
+      <!-- QR Code Section -->
+      <div class="bg-[#0f0f0f] px-6 py-6 border-t border-dashed border-[#00E676]/30 flex flex-col items-center justify-center">
+        <div class="bg-white p-3 rounded-lg shadow-[0_0_20px_rgba(0,230,118,0.3)] mb-3 transition-transform duration-500 hover:scale-105">
+          <div id="ticket-qrcode"></div>
+        </div>
+        <p class="text-xs text-on-surface-variant text-center">Scan at the entrance</p>
+      </div>
+    </div>
+    
+    <div class="max-w-md mx-auto grid grid-cols-2 gap-3">
+      <button type="button" id="btn-download" class="bg-transparent border border-[#00E676] text-[#00E676] font-bold uppercase tracking-widest text-xs py-3 rounded hover:bg-[#00E676]/10 transition-colors flex items-center justify-center gap-2">
+        <span class="material-symbols-outlined text-sm">download</span> Download
+      </button>
+      <button type="button" id="btn-share-whatsapp" class="bg-[#25D366] text-white font-bold uppercase tracking-widest text-xs py-3 rounded hover:bg-[#1DA851] transition-colors flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path></svg> Share
+      </button>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -500,127 +581,258 @@ WhatsApp to Book
 </div>
 </div>
 </div></footer>
+<style>
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+</style>
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('booking-form');
-        const successScreen = document.getElementById('booking-success');
-        const submitBtn = document.getElementById('booking-submit');
-        const bookAnotherBtn = document.getElementById('book-another-btn');
-        const whatsappBtn = document.getElementById('whatsapp-btn');
-        const successMessage = document.getElementById('success-message');
+document.addEventListener('DOMContentLoaded', () => {
+    // UI Elements
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const indicator1 = document.getElementById('step-indicator-1');
+    const indicator2 = document.getElementById('step-indicator-2');
+    const btnContinue = document.getElementById('btn-continue');
+    const btnEditSlot = document.getElementById('btn-edit-slot');
+    
+    // Summary & Hidden Inputs
+    const summaryDate = document.getElementById('summary-date');
+    const summaryTime = document.getElementById('summary-time');
+    const hiddenDate = document.getElementById('hidden-date');
+    const hiddenSlot = document.getElementById('hidden-slot');
+    
+    // Containers
+    const dateContainer = document.getElementById('date-container');
+    const slotsMorning = document.getElementById('slots-morning');
+    const slotsAfternoon = document.getElementById('slots-afternoon');
+    const slotsNight = document.getElementById('slots-night');
+    
+    // State
+    let selectedDateVal = null;
+    let selectedSlotVal = null;
 
-        const fields = {
-            name: { el: document.getElementById('booking-name'), error: document.getElementById('error-name') },
-            phone: { el: document.getElementById('booking-phone'), error: document.getElementById('error-phone') },
-            date: { el: document.getElementById('booking-date'), error: document.getElementById('error-date') },
-            slot: { el: document.getElementById('booking-slot'), error: document.getElementById('error-slot') }
-        };
+    // Generate Dates (Next 7 Days)
+    const dates = [];
+    const today = new Date();
+    for (let i = 0; i < 7; i++) {
+        let d = new Date();
+        d.setDate(today.getDate() + i);
+        dates.push({
+            full: d,
+            day: d.toLocaleDateString('en-US', { weekday: 'short' }),
+            date: d.getDate(),
+            month: d.toLocaleDateString('en-US', { month: 'short' })
+        });
+    }
 
-        function validateField(key) {
-            const field = fields[key];
-            const val = field.el.value.trim();
-            let isValid = true;
-
-            if (key === 'name') isValid = val !== '';
-            if (key === 'phone') isValid = /^\d{10}$/.test(val);
-            if (key === 'date') isValid = val !== '';
-            if (key === 'slot') isValid = val !== '';
-
-            if (!isValid) {
-                field.error.classList.remove('hidden');
-                field.el.classList.add('border-error');
-            } else {
-                field.error.classList.add('hidden');
-                field.el.classList.remove('border-error');
-            }
-
-            return isValid;
-        }
-
-        function clearValidation() {
-            Object.values(fields).forEach(f => {
-                f.error.classList.add('hidden');
-                f.el.classList.remove('border-error');
+    dates.forEach((d, index) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'flex-shrink-0 w-20 py-3 rounded-lg border border-outline-variant bg-[#252525] flex flex-col items-center justify-center transition-all duration-300 hover:border-primary snap-center date-btn';
+        btn.innerHTML = `
+            <span class="text-xs text-on-surface-variant uppercase">${d.day}</span>
+            <span class="text-xl font-bold text-white my-1">${d.date}</span>
+            <span class="text-xs text-on-surface-variant uppercase">${d.month}</span>
+        `;
+        
+        btn.addEventListener('click', () => {
+            // Deselect all
+            document.querySelectorAll('.date-btn').forEach(c => {
+                c.classList.remove('border-[#00E676]', 'ring-1', 'ring-[#00E676]', 'shadow-[0_0_15px_rgba(0,230,118,0.2)]', 'scale-105');
+                c.classList.add('border-outline-variant');
             });
-        }
-
-        Object.keys(fields).forEach(key => {
-            fields[key].el.addEventListener('input', () => validateField(key));
+            // Select this
+            btn.classList.remove('border-outline-variant');
+            btn.classList.add('border-[#00E676]', 'ring-1', 'ring-[#00E676]', 'shadow-[0_0_15px_rgba(0,230,118,0.2)]', 'scale-105');
+            selectedDateVal = `${d.date} ${d.month}`;
+            checkSelection();
         });
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const isNameValid = validateField('name');
-            const isPhoneValid = validateField('phone');
-            const isDateValid = validateField('date');
-            const isSlotValid = validateField('slot');
-
-            if (isNameValid && isPhoneValid && isDateValid && isSlotValid) {
-                // Form is valid, show loading
-                submitBtn.disabled = true;
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Processing...';
-
-                // Simulate API call
-                setTimeout(() => {
-                    const name = fields.name.el.value.trim();
-                    const phone = fields.phone.el.value.trim();
-                    const date = fields.date.el.value;
-                    const slot = fields.slot.el.value;
-
-                    // Formating Date for display
-                    const dateObj = new Date(date);
-                    const formattedDate = dateObj.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-
-                    // Update Success text
-                    successMessage.innerHTML = `Thank you <strong class="text-white">${name}</strong>! Your slot at Vaadivaasal Eco-Friendly Turf has been confirmed. Our team will contact you at <strong class="text-white">${phone}</strong> shortly to confirm your <strong class="text-white">${slot}</strong> on <strong class="text-white">${formattedDate}</strong>.`;
-
-                    // Setup WhatsApp Link
-                    const text = `Hi, I'd like to confirm my booking at Vaadivaasal Eco-Friendly Turf.%0A%0A*Name*: ${name}%0A*Phone*: ${phone}%0A*Date*: ${formattedDate}%0A*Slot*: ${slot}`;
-                    whatsappBtn.href = `https://wa.me/919944012345?text=${text}`;
-
-                    // Transition to success screen
-                    form.classList.add('opacity-0');
-                    form.style.pointerEvents = 'none';
-
-                    setTimeout(() => {
-                        successScreen.classList.remove('hidden');
-                        
-                        // Small reflow delay before opacity
-                        requestAnimationFrame(() => {
-                            successScreen.classList.remove('opacity-0', 'scale-95');
-                            successScreen.classList.add('opacity-100', 'scale-100');
-                            successScreen.querySelector('.success-checkmark').classList.add('active');
-                        });
-
-                        // Reset button
-                        submitBtn.disabled = false;
-                        submitBtn.textContent = originalText;
-                    }, 400);
-
-                }, 800);
-            }
-        });
-
-        bookAnotherBtn.addEventListener('click', () => {
-            // Hide success screen
-            successScreen.classList.remove('opacity-100', 'scale-100');
-            successScreen.classList.add('opacity-0', 'scale-95');
-            successScreen.querySelector('.success-checkmark').classList.remove('active');
-
-            setTimeout(() => {
-                successScreen.classList.add('hidden');
-                
-                // Reset form
-                form.reset();
-                clearValidation();
-                
-                // Show form
-                form.classList.remove('opacity-0');
-                form.style.pointerEvents = 'auto';
-            }, 400);
-        });
+        
+        dateContainer.appendChild(btn);
     });
+
+    // Generate Slots
+    const slotsData = {
+        morning: ['5:00 AM', '6:30 AM', '8:00 AM'],
+        afternoon: ['10:00 AM', '1:00 PM', '4:00 PM'],
+        night: ['6:30 PM', '8:00 PM', '9:30 PM']
+    };
+
+    function renderSlots(container, times) {
+        times.forEach((t, i) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            // Mock some booked slots randomly for realism (20% chance)
+            const isBooked = Math.random() < 0.2; 
+            
+            if (isBooked) {
+                btn.className = 'py-2 rounded border border-outline-variant/30 bg-[#1a1a1a] text-on-surface-variant/40 text-sm font-bold cursor-not-allowed';
+                btn.innerText = t;
+                btn.disabled = true;
+            } else {
+                btn.className = 'py-2 rounded border border-outline-variant bg-[#252525] text-on-surface text-sm font-bold transition-all duration-300 hover:border-primary slot-btn';
+                btn.innerText = t;
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.slot-btn').forEach(c => {
+                        c.classList.remove('border-[#00E676]', 'ring-1', 'ring-[#00E676]', 'text-[#00E676]', 'shadow-[0_0_15px_rgba(0,230,118,0.2)]', 'scale-105');
+                        c.classList.add('border-outline-variant', 'text-on-surface');
+                    });
+                    btn.classList.remove('border-outline-variant', 'text-on-surface');
+                    btn.classList.add('border-[#00E676]', 'ring-1', 'ring-[#00E676]', 'text-[#00E676]', 'shadow-[0_0_15px_rgba(0,230,118,0.2)]', 'scale-105');
+                    selectedSlotVal = t;
+                    checkSelection();
+                });
+            }
+            container.appendChild(btn);
+        });
+    }
+
+    renderSlots(slotsMorning, slotsData.morning);
+    renderSlots(slotsAfternoon, slotsData.afternoon);
+    renderSlots(slotsNight, slotsData.night);
+
+    function checkSelection() {
+        if (selectedDateVal && selectedSlotVal) {
+            btnContinue.disabled = false;
+            btnContinue.classList.add('hover:scale-[1.02]', 'shadow-[0_0_20px_rgba(46,125,50,0.4)]');
+        } else {
+            btnContinue.disabled = true;
+            btnContinue.classList.remove('hover:scale-[1.02]', 'shadow-[0_0_20px_rgba(46,125,50,0.4)]');
+        }
+    }
+
+    // Transitions
+    btnContinue.addEventListener('click', () => {
+        // Update summary
+        summaryDate.innerText = selectedDateVal;
+        summaryTime.innerText = selectedSlotVal;
+        hiddenDate.value = selectedDateVal;
+        hiddenSlot.value = selectedSlotVal;
+
+        // Hide step 1, show step 2
+        step1.classList.add('opacity-0', '-translate-y-4');
+        setTimeout(() => {
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+            // trigger reflow
+            void step2.offsetWidth;
+            step2.classList.remove('opacity-0', 'translate-y-4');
+            
+            // Update indicators
+            indicator1.classList.remove('text-primary', 'font-bold');
+            indicator1.classList.add('opacity-50');
+            indicator2.classList.remove('opacity-50');
+            indicator2.classList.add('text-primary', 'font-bold');
+        }, 500);
+    });
+
+    btnEditSlot.addEventListener('click', () => {
+        step2.classList.add('opacity-0', 'translate-y-4');
+        setTimeout(() => {
+            step2.classList.add('hidden');
+            step1.classList.remove('hidden');
+            void step1.offsetWidth;
+            step1.classList.remove('opacity-0', '-translate-y-4');
+            
+            indicator2.classList.remove('text-primary', 'font-bold');
+            indicator2.classList.add('opacity-50');
+            indicator1.classList.remove('opacity-50');
+            indicator1.classList.add('text-primary', 'font-bold');
+        }, 500);
+    });
+    
+    // UI Elements for Step 3
+    const step3 = document.getElementById('step-3');
+    const ticketName = document.getElementById('ticket-name');
+    const ticketDate = document.getElementById('ticket-date');
+    const ticketTime = document.getElementById('ticket-time');
+    const ticketId = document.getElementById('ticket-id');
+    const ticketQrCode = document.getElementById('ticket-qrcode');
+    const btnDownload = document.getElementById('btn-download');
+    const btnShareWhatsapp = document.getElementById('btn-share-whatsapp');
+
+    // State for Ticket
+    let generatedBookingId = null;
+    let qrCodeInstance = null;
+
+    // Form Submit logic
+    const form = document.getElementById('premium-booking-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = document.getElementById('btn-confirm-booking');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `<span class="material-symbols-outlined align-middle animate-spin">sync</span> Processing...`;
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            // Generate Booking ID
+            const randomNum = Math.floor(10000 + Math.random() * 90000);
+            generatedBookingId = `VDT${randomNum}`;
+            
+            // Populate Ticket Details
+            const name = document.getElementById('input-name').value;
+            const phone = document.getElementById('input-phone').value;
+            
+            ticketName.innerText = name;
+            ticketDate.innerText = selectedDateVal;
+            ticketTime.innerText = selectedSlotVal;
+            ticketId.innerText = generatedBookingId;
+            
+            // Generate QR Code
+            const qrData = `Booking ID: ${generatedBookingId}\nName: ${name}\nDate: ${selectedDateVal}\nSlot: ${selectedSlotVal}`;
+            ticketQrCode.innerHTML = ''; // clear if exists
+            qrCodeInstance = new QRCode(ticketQrCode, {
+                text: qrData,
+                width: 128,
+                height: 128,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            
+            // Setup WhatsApp link
+            const waText = `Hi, I'd like to confirm my booking at Vaadivaasal Eco-Friendly Turf.%0A%0A*Booking ID*: ${generatedBookingId}%0A*Name*: ${name}%0A*Phone*: ${phone}%0A*Date*: ${selectedDateVal}%0A*Slot*: ${selectedSlotVal}`;
+            btnShareWhatsapp.onclick = () => window.open(`https://wa.me/919944012345?text=${waText}`, '_blank');
+            
+            // Transition to Step 3
+            step2.classList.add('opacity-0', '-translate-y-4');
+            setTimeout(() => {
+                step2.classList.add('hidden');
+                step3.classList.remove('hidden');
+                void step3.offsetWidth;
+                step3.classList.remove('opacity-0', 'translate-y-4');
+                
+                // Update header step indicator text
+                indicator2.innerText = "Step 2: Done";
+                indicator2.classList.remove('text-primary');
+                indicator2.classList.add('text-[#00E676]');
+            }, 500);
+            
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 1200);
+    });
+
+    // Download Ticket Logic
+    btnDownload.addEventListener('click', () => {
+        const ticketCard = document.getElementById('ticket-card');
+        const originalText = btnDownload.innerHTML;
+        btnDownload.innerHTML = `<span class="material-symbols-outlined animate-spin text-sm">sync</span> Saving...`;
+        
+        // Wait for rendering just in case
+        setTimeout(() => {
+            html2canvas(ticketCard, {
+                backgroundColor: '#121212', // matches bg
+                scale: 2 // higher res
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `${generatedBookingId}-Ticket.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                btnDownload.innerHTML = originalText;
+            });
+        }, 300);
+    });
+});
 </script>
 </body></html>
