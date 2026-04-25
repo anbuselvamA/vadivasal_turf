@@ -172,9 +172,9 @@
 <a class="bg-[#00E676] text-[#002204] px-8 py-4 rounded font-lexend font-black uppercase tracking-tight text-sm hover:bg-[#62ff96] transition-all shadow-[0_0_20px_rgba(0,230,118,0.3)] w-full sm:w-auto hover:scale-105" href="#booking">
     Book Now
 </a>
-<a class="bg-[#25D366] text-white px-8 py-4 rounded font-lexend font-bold uppercase tracking-tight text-sm hover:bg-[#128C7E] transition-all flex items-center justify-center gap-2 w-full sm:w-auto hover:scale-105" href="https://wa.me/919944012345" target="_blank">
-<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.224-3.82c1.516.903 3.125 1.379 4.772 1.379 5.434 0 9.856-4.422 9.859-9.856.002-2.633-1.022-5.11-2.883-6.97s-4.337-2.885-6.97-2.885c-5.435 0-9.856 4.422-9.859 9.856 0 2.062.636 4.045 1.834 5.714l-1.011 3.693 3.789-.994zm10.551-7.143c-.287-.144-1.696-.838-1.957-.933-.263-.094-.453-.144-.643.144-.191.287-.738.933-.905 1.124-.167.19-.333.214-.62.071-.285-.143-1.208-.445-2.301-1.42-.85-.758-1.424-1.694-1.591-1.981-.167-.287-.018-.441.126-.582.129-.127.287-.333.43-.5.143-.167.19-.286.286-.476.094-.19.048-.357-.024-.5-.071-.143-.643-1.547-.88-2.119-.232-.557-.466-.481-.643-.49-.166-.007-.357-.008-.547-.008s-.5.071-.762.357c-.262.287-1.001.977-1.001 2.381 0 1.405 1.024 2.763 1.167 2.953.143.19 2.015 3.076 4.882 4.316.682.296 1.215.472 1.63.606.684.218 1.307.187 1.8.113.55-.082 1.696-.691 1.934-1.357.238-.667.238-1.239.167-1.357-.07-.119-.262-.19-.548-.334z"></path></svg>
-    Chat on WhatsApp
+<a class="bg-transparent border border-[#00E676] text-[#00E676] px-8 py-4 rounded font-lexend font-bold uppercase tracking-tight text-sm hover:bg-[#00E676]/10 transition-all w-full sm:w-auto hover:scale-105 flex items-center justify-center gap-2" href="#pricing">
+    <span class="material-symbols-outlined text-base">payments</span>
+    View Pricing
 </a>
 </div>
 </div>
@@ -217,6 +217,110 @@
 </div>
 </div>
 </section>
+
+<!-- Pricing Section -->
+<section class="py-xl px-6 max-w-screen-2xl mx-auto" id="pricing">
+<div class="text-center mb-lg">
+  <span class="text-[#00E676] font-bold uppercase tracking-widest text-xs">Transparent Pricing</span>
+  <h2 class="font-lexend text-3xl md:text-4xl font-black text-white uppercase tracking-tighter mt-2 mb-3">Simple. Fair. <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00E676] to-[#62ff96]">Affordable.</span></h2>
+  <p class="text-neutral-400 text-sm md:text-base max-w-xl mx-auto">Pay per hour — no hidden charges. Click a slot below to go straight to booking.</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="pricing-cards">
+
+  <!-- Morning -->
+  <div class="pricing-card bg-[#1a1a1a] border border-[#333333] rounded-xl p-6 flex flex-col gap-4 hover:border-[#00E676]/50 hover:shadow-[0_0_20px_rgba(0,230,118,0.08)] transition-all duration-300 cursor-pointer" data-slot-category="morning" onclick="selectSlotCategory('morning', this)">
+    <div class="flex items-center justify-between">
+      <div class="w-10 h-10 rounded-lg bg-yellow-400/10 flex items-center justify-center">
+        <span class="material-symbols-outlined text-yellow-300">wb_sunny</span>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 border border-neutral-700 rounded-full px-3 py-1">Morning</span>
+    </div>
+    <div>
+      <p class="text-neutral-400 text-xs uppercase tracking-widest mb-1">5:00 AM – 10:00 AM</p>
+      <div class="flex items-end gap-1">
+        <span class="text-white font-black text-4xl font-lexend">₹800</span>
+        <span class="text-neutral-500 text-sm mb-1">/hour</span>
+      </div>
+    </div>
+    <ul class="space-y-2 flex-1">
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Full ground access</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Floodlights included</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Parking available</li>
+    </ul>
+    <button onclick="selectSlotCategory('morning', this.closest('.pricing-card'))" class="mt-2 w-full text-center bg-[#1f1f1f] border border-[#00E676]/50 text-[#00E676] text-xs font-black uppercase tracking-widest py-3 rounded hover:bg-[#00E676] hover:text-[#002204] transition-all duration-300 flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-base">calendar_month</span> Book Morning Slot
+    </button>
+  </div>
+
+  <!-- Afternoon – Most Popular -->
+  <div class="pricing-card bg-[#0e1f14] border-2 border-[#00E676] rounded-xl p-6 flex flex-col gap-4 shadow-[0_0_30px_rgba(0,230,118,0.15)] relative cursor-pointer" data-slot-category="afternoon" onclick="selectSlotCategory('afternoon', this)">
+    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+      <span class="bg-[#00E676] text-[#002204] text-[10px] font-black uppercase tracking-widest px-4 py-1 rounded-full shadow-[0_0_15px_rgba(0,230,118,0.4)]">Most Popular</span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="w-10 h-10 rounded-lg bg-[#00E676]/10 flex items-center justify-center">
+        <span class="material-symbols-outlined text-[#00E676]">partly_cloudy_day</span>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-[#00E676] border border-[#00E676]/40 rounded-full px-3 py-1">Afternoon</span>
+    </div>
+    <div>
+      <p class="text-neutral-400 text-xs uppercase tracking-widest mb-1">10:00 AM – 5:00 PM</p>
+      <div class="flex items-end gap-1">
+        <span class="text-white font-black text-4xl font-lexend">₹900</span>
+        <span class="text-neutral-500 text-sm mb-1">/hour</span>
+      </div>
+    </div>
+    <ul class="space-y-2 flex-1">
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Full ground access</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Floodlights included</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Changing rooms</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Drinking water</li>
+    </ul>
+    <button onclick="selectSlotCategory('afternoon', this.closest('.pricing-card'))" class="mt-2 w-full text-center bg-[#00E676] text-[#002204] text-xs font-black uppercase tracking-widest py-3 rounded hover:bg-[#62ff96] transition-colors shadow-[0_0_15px_rgba(0,230,118,0.3)] flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-base">calendar_month</span> Book Afternoon Slot
+    </button>
+  </div>
+
+  <!-- Night -->
+  <div class="pricing-card bg-[#1a1a1a] border border-[#333333] rounded-xl p-6 flex flex-col gap-4 hover:border-[#00E676]/50 hover:shadow-[0_0_20px_rgba(0,230,118,0.08)] transition-all duration-300 cursor-pointer" data-slot-category="night" onclick="selectSlotCategory('night', this)">
+    <div class="flex items-center justify-between">
+      <div class="w-10 h-10 rounded-lg bg-indigo-900/30 flex items-center justify-center">
+        <span class="material-symbols-outlined text-indigo-300">nights_stay</span>
+      </div>
+      <span class="text-[10px] font-bold uppercase tracking-widest text-neutral-500 border border-neutral-700 rounded-full px-3 py-1">Night</span>
+    </div>
+    <div>
+      <p class="text-neutral-400 text-xs uppercase tracking-widest mb-1">5:00 PM – 12:00 AM</p>
+      <div class="flex items-end gap-1">
+        <span class="text-white font-black text-4xl font-lexend">₹1200</span>
+        <span class="text-neutral-500 text-sm mb-1">/hour</span>
+      </div>
+    </div>
+    <ul class="space-y-2 flex-1">
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Full ground access</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Premium floodlights</li>
+      <li class="flex items-center gap-2 text-sm text-neutral-300"><span class="material-symbols-outlined text-[#00E676] text-base">check_circle</span>Changing rooms</li>
+    </ul>
+    <button onclick="selectSlotCategory('night', this.closest('.pricing-card'))" class="mt-2 w-full text-center bg-[#1f1f1f] border border-[#00E676]/50 text-[#00E676] text-xs font-black uppercase tracking-widest py-3 rounded hover:bg-[#00E676] hover:text-[#002204] transition-all duration-300 flex items-center justify-center gap-2">
+      <span class="material-symbols-outlined text-base">calendar_month</span> Book Night Slot
+    </button>
+  </div>
+
+</div>
+
+<div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+  <div class="flex items-center gap-2 bg-[#1a1a1a] border border-[#333] rounded-lg px-4 py-2.5">
+    <span class="material-symbols-outlined text-[#00E676] text-base">info</span>
+    <p class="text-xs text-neutral-400">Minimum booking: <span class="text-white font-bold">1 hour</span></p>
+  </div>
+  <div class="flex items-center gap-2 bg-[#1a1a1a] border border-[#333] rounded-lg px-4 py-2.5">
+    <span class="material-symbols-outlined text-[#00E676] text-base">groups</span>
+    <p class="text-xs text-neutral-400">Group / Tournament discounts — <a class="text-[#00E676] font-bold hover:underline" href="https://wa.me/919944012345" target="_blank">Contact Us</a></p>
+  </div>
+</div>
+</section>
+
 <!-- Services Section -->
 <section class="py-xl bg-surface-container-lowest" id="performance">
 <div class="max-w-screen-2xl mx-auto px-6">
@@ -856,5 +960,46 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     });
 });
+
+// Global function: called from pricing cards to select a time category & scroll to booking
+function selectSlotCategory(category, cardEl) {
+    // Highlight selected pricing card
+    document.querySelectorAll('.pricing-card').forEach(c => {
+        c.classList.remove('ring-2', 'ring-[#00E676]', 'shadow-[0_0_25px_rgba(0,230,118,0.2)]');
+    });
+    if (cardEl) {
+        cardEl.classList.add('ring-2', 'ring-[#00E676]', 'shadow-[0_0_25px_rgba(0,230,118,0.2)]');
+    }
+
+    // Map category to container IDs used in booking section
+    const containerMap = {
+        morning: 'slots-morning',
+        afternoon: 'slots-afternoon',
+        night: 'slots-night'
+    };
+
+    // Scroll to booking section
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+        bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Wait for scroll then click the first available slot button in that category
+    setTimeout(() => {
+        const containerId = containerMap[category];
+        if (!containerId) return;
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const firstAvailable = container.querySelector('.slot-btn:not(:disabled)');
+        if (firstAvailable) {
+            firstAvailable.click();
+        }
+        // Also auto-select today's date if none is selected
+        const firstDate = document.querySelector('.date-btn');
+        if (firstDate && !document.querySelector('.date-btn.border-\\[\\#00E676\\]')) {
+            firstDate.click();
+        }
+    }, 800);
+}
 </script>
 </body></html>
